@@ -15,6 +15,9 @@ case $1 in
         set -x;
         shift;
         ;;
+    -o)
+	OUT="$2"/$NOW; shift; shift;
+	;;
     -q)
         QUIET=-q; shift;
 	PROGRESSREPORT=
@@ -34,7 +37,8 @@ DEVICE=${1:-$DEVICE}
 
 JPEGNAME="$OUT/$FNAME%06d.jpg"
 
-mkdir -p $OUT
+mkdir -p "$OUT"
+echo "Output at $OUT"
 
 gst-launch-1.0 \
 	$QUIET $VERBOSE \
