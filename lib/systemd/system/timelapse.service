@@ -1,0 +1,11 @@
+[Unit]
+Description=Timelapse Service
+BindsTo=dev-video0.device
+After=dev-video0.device
+
+[Service]
+ExecStart=/home/pi/timelapse.sh -o /home/pi/brio/ /dev/v4l/by-id/usb-046d_Logitech_BRIO_61306147-video-index0
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
