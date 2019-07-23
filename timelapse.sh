@@ -46,7 +46,7 @@ gst-launch-1.0 \
 	! image/jpeg \
 	! queue \
 	! videorate \
-	! image/jpeg,framerate=1/1 $PROGRESSREPORT \
+	! image/jpeg,framerate=1/10 $PROGRESSREPORT \
 	! multifilesink location="$JPEGNAME"
 
 exit
